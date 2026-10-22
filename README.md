@@ -81,7 +81,7 @@ Trips are grouped by pickup hour, then into five time buckets.
 
 | Time of day | Hours | Avg tip % | Trips |
 |---|---|---|---|
-| Early Morning | 1–5 AM | 28.69 | 86,694 |
+| Early Morning | 1–6 AM | 28.69 | 86,694 |
 | Evening | 5–9 PM | 28.60 | 651,582 |
 | Night | 9 PM–1 AM | 27.45 | 427,665 |
 | Afternoon | 12–5 PM | 27.06 | 706,415 |
@@ -156,6 +156,7 @@ This combines Queries 2 and 4 to check whether the time-of-day pattern holds wit
 - **Small samples outside Manhattan and Queens.** After filtering, the Bronx has 515 trips, Brooklyn 8,670, and Staten Island 21. Their averages aren't reliable.
 - **Pickup borough only.** Dropoff location, which matters for airport trips, isn't included.
 - **Tip percentage uses the base fare only.** Riders may calculate tips on the total including surcharges and tolls, which would change the percentages somewhat.
+- **Tip percentage, not tip dollars.** A higher percentage doesn't mean more money. Queens trips include long airport rides with large fares, so they may earn more tip dollars per trip even at a lower percentage. Tip dollars weren't analyzed.
 
 ## What I Learned
 - **Investigating unusual results:** The $3 fare floor and the zero-tip filter both came from results that looked wrong. Checking the raw rows instead of accepting the averages changed the analysis.
@@ -168,3 +169,5 @@ This combines Queries 2 and 4 to check whether the time-of-day pattern holds wit
 For credit card trips with a recorded tip, NYC taxi riders tip about 27–28% on average, and that number is stable. Time of day changes it by about 3 points, and the day of the week barely changes it. Pickup location matters more: Manhattan pickups tip about 4–7 points more than Queens pickups at every time of day.
 
 Data quality also shaped the results. Over 260,000 credit card trips recorded no tip, concentrated in the Bronx and Brooklyn, and handling that problem affected the findings more than any single query.
+
+For a taxi driver, these results suggest that where a trip starts matters more than when it happens: Manhattan pickups earned a higher tip percentage than Queens pickups at every time of day, while the hour and day barely changed it.
