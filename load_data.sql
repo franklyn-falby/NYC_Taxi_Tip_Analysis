@@ -1,0 +1,2 @@
+\copy taxi_trip_records FROM '/Users/franklynfalby/Desktop/TAXI/nyc_taxi/csv_files/taxi_trip_records_v2.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+\copy taxi_zone_lookup FROM '/Users/franklynfalby/Desktop/TAXI/nyc_taxi/csv_files/taxi_zone_lookup.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
